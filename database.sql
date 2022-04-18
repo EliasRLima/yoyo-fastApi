@@ -1,0 +1,2 @@
+ALTER USER postgres PASSWORD 'erl';
+CREATE DATABASE testdb;
