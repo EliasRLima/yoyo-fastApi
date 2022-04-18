@@ -9,7 +9,6 @@ session = Session()
 metadata = db.MetaData()
 usuarios = db.Table('usuarios', metadata, autoload=True, autoload_with=engine)
 
-
 def getUsers():
     query = db.select([usuarios])
     ResultProxy = connection.execute(query)
@@ -30,7 +29,7 @@ def save(user: UsuarioEntenty.Usuario):
               'user_cpf': user['user_cpf']}]
     ResultProxy = connection.execute(query, value)
     session.commit()
-
+    return ResultProxy
 
 def update(user: UsuarioEntenty.Usuario):
     query = db.update(usuarios).values(dt_nascimento=user['dt_nascimento'], nome=user['nome'],
