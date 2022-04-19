@@ -5,4 +5,3 @@ class Usuario(BaseModel):
     dt_nascimento: str
     nome: str
     user_cpf: str
-    user_pass: str

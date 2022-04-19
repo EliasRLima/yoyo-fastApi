@@ -25,16 +25,14 @@ def getById(id: int):
 
 def save(user: UsuarioEntenty.Usuario):
     query = db.insert(usuarios)
-    value = [{'user_id': user['user_id'], 'dt_nascimento': user['dt_nascimento'], 'nome': user['nome'],
-              'user_cpf': user['user_cpf']}]
+    value = [{'user_id': user.user_id, 'dt_nascimento': user.dt_nascimento, 'nome': user.nome, 'user_cpf': user.user_cpf}]
     ResultProxy = connection.execute(query, value)
     session.commit()
     return ResultProxy
 
 def update(user: UsuarioEntenty.Usuario):
-    query = db.update(usuarios).values(dt_nascimento=user['dt_nascimento'], nome=user['nome'],
-                                       user_cpf=user['user_cpf'])
-    query = query.where(usuarios.columns.user_id == user['user_id'])
+    query = db.update(usuarios).values(dt_nascimento=user.dt_nascimento, nome=user.nome, user_cpf=user.user_cpf)
+    query = query.where(usuarios.columns.user_id == user.user_id)
     results = connection.execute(query)
     session.commit()
     return results
