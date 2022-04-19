@@ -1,4 +1,5 @@
-from Model import UsuarioEntenty, UsuarioRepository
+from Model import UsuarioEntenty
+from Repository import UsuarioRepository
 
 
 def buscarUsuarios():

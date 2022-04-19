@@ -1,5 +1,5 @@
-from typing import Optional
-from Model import UsuarioService, UsuarioEntenty
+from Model import UsuarioEntenty
+from Service import UsuarioService
 from fastapi import FastAPI
 
 app = FastAPI()
