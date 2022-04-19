@@ -2,7 +2,7 @@ import sqlalchemy as db
 from sqlalchemy.orm import sessionmaker
 from Model import UsuarioEntenty
 
-engine = db.create_engine('postgres://postgres:erl@localhost/testdb')
+engine = db.create_engine('postgresql+psycopg2://postgres:erl@localhost:5433/testdb')
 connection = engine.connect()
 Session = sessionmaker(engine)
 session = Session()

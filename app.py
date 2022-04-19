@@ -1,14 +1,16 @@
 from typing import Optional
-
+from Model import UsuarioService
 from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
+@app.get("/usuarios")
 async def root():
-    return {"message": "Hello World"}
+    usuarios = UsuarioService.buscarUsuarios()
+    return {"Usuarios": usuarios}
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+@app.get("/usuarios/{id}")
+async def say_hello(id: int):
+    usuario = UsuarioService.buscarUsuario(id)
+    return {"Usuario": usuario}
